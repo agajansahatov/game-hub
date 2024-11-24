@@ -12,7 +12,6 @@ import {
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo, SiAtari, SiSega } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
-import { AiFillAlipayCircle } from "react-icons/ai";
 import { IconType } from "react-icons/lib";
 
 interface Props {
