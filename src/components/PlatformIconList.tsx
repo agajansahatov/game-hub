@@ -10,8 +10,9 @@ import {
 } from "react-icons/fa";
 
 import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo } from "react-icons/si";
+import { SiNintendo, SiAtari, SiSega } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
+import { AiFillAlipayCircle } from "react-icons/ai";
 import { IconType } from "react-icons/lib";
 
 interface Props {
@@ -24,31 +25,27 @@ const PlatformIconList = ({ platforms, selectedPlatform }: Props) => {
 		pc: FaWindows,
 		playstation: FaPlaystation,
 		xbox: FaXbox,
-		nintendo: SiNintendo,
+		ios: MdPhoneIphone,
+		android: FaAndroid,
 		mac: FaApple,
 		linux: FaLinux,
-		android: FaAndroid,
-		ios: MdPhoneIphone,
+		nintendo: SiNintendo,
+		atari: SiAtari,
+		sega: SiSega,
 		web: BsGlobe,
 	};
 
-	const iconMapArray = Object.keys(iconMap);
-
 	return (
 		<HStack marginY={1}>
-			{platforms.map((platform) =>
-				iconMapArray.indexOf(platform.slug) ? (
-					<Icon
-						as={iconMap[platform.slug]}
-						color={
-							platform.slug === selectedPlatform?.slug ? "green" : "gray.500"
-						}
-						key={platform.id}
-					/>
-				) : (
-					platform.name
-				),
-			)}
+			{platforms.map((platform) => (
+				<Icon
+					as={iconMap[platform.slug]}
+					color={
+						platform.slug === selectedPlatform?.slug ? "green" : "gray.500"
+					}
+					key={platform.id}
+				/>
+			))}
 		</HStack>
 	);
 };

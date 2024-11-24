@@ -4,7 +4,7 @@ import usePlatforms from "../hooks/usePlatforms";
 import { Platform } from "../hooks/useGames";
 
 interface Props {
-	onSelectPlatform: (platform: Platform) => void;
+	onSelectPlatform: (p: Platform) => void;
 	selectedPlatform: Platform | null;
 }
 
@@ -19,14 +19,19 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
 				{selectedPlatform?.name || "Platforms"}
 			</MenuButton>
 			<MenuList>
-				{platforms.map((platform) => (
-					<MenuItem
-						key={platform.id}
-						onClick={() => onSelectPlatform(platform)}
-					>
-						{platform.name}
-					</MenuItem>
-				))}
+				{platforms.map(
+					(p) =>
+						p.slug.indexOf("-") == -1 &&
+						p.slug.indexOf("3") == -1 && (
+							<MenuItem
+								key={p.id}
+								onClick={() => onSelectPlatform(p)}
+								fontWeight={selectedPlatform?.id == p.id ? "bold" : "normal"}
+							>
+								{p.name}
+							</MenuItem>
+						),
+				)}
 			</MenuList>
 		</Menu>
 	);
