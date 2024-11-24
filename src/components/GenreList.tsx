@@ -10,10 +10,11 @@ import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "./../services/image-url";
 
 interface Props {
+	selectedGenre: Genre | null;
 	onSelectGenre: (genre: Genre) => void;
 }
 
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
 	const { data: genres, isLoading, error } = useGenres();
 
 	if (error) return null;
@@ -32,6 +33,7 @@ const GenreList = ({ onSelectGenre }: Props) => {
 						/>
 						<Button
 							fontSize="lg"
+							fontWeight={genre.id == selectedGenre?.id ? "bold" : "normal"}
 							variant="link"
 							onClick={() => onSelectGenre(genre)}
 						>
