@@ -29,6 +29,13 @@ export const GameCard = ({ game, gameQuery }: Props) => {
 		<Card>
 			<Image src={getCroppedImageUrl(game.background_image)} />
 			<CardBody>
+				<HStack justifyContent="space-between" marginBottom={3}>
+					<PlatformIconList
+						platforms={game.parent_platforms.map((p) => p.platform)}
+						selectedPlatform={gameQuery.platform}
+					/>
+					<CriticScore score={game.metacritic} />
+				</HStack>
 				<Heading fontSize="2xl">
 					{hightlight ? (
 						<>
@@ -42,13 +49,6 @@ export const GameCard = ({ game, gameQuery }: Props) => {
 						gameName
 					)}
 				</Heading>
-				<HStack justifyContent="space-between">
-					<PlatformIconList
-						platforms={game.parent_platforms.map((p) => p.platform)}
-						selectedPlatform={gameQuery.platform}
-					/>
-					<CriticScore score={game.metacritic} />
-				</HStack>
 			</CardBody>
 		</Card>
 	);
