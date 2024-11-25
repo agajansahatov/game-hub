@@ -4,6 +4,7 @@ import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "./../services/image-url";
 import { GameQuery } from "../App";
+import Emoji from "./Emoji";
 
 interface Props {
 	game: Game;
@@ -48,6 +49,7 @@ export const GameCard = ({ game, gameQuery }: Props) => {
 					) : (
 						gameName
 					)}
+					<Emoji rating={game.rating_top} />
 				</Heading>
 			</CardBody>
 		</Card>
