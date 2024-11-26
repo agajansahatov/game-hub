@@ -9,7 +9,7 @@ interface Props {
 }
 
 const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
-	const { data: platforms, error } = usePlatforms();
+	const { data, error } = usePlatforms();
 
 	if (error) return null;
 
@@ -19,7 +19,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
 				{selectedPlatform?.name || "Platforms"}
 			</MenuButton>
 			<MenuList>
-				{platforms.map(
+				{data?.results.map(
 					(p) =>
 						p.slug.indexOf("-") == -1 &&
 						p.slug.indexOf("3") == -1 && (
