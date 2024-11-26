@@ -19,7 +19,7 @@ interface Props {
 	selectedPlatform: Platform | null;
 }
 
-const PlatformIconList = ({ platforms, selectedPlatform }: Props) => {
+const PlatformIconList = ({ platforms = [], selectedPlatform }: Props) => {
 	const iconMap: { [key: string]: IconType } = {
 		pc: FaWindows,
 		playstation: FaPlaystation,
