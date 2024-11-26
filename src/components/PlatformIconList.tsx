@@ -16,7 +16,7 @@ import { IconType } from "react-icons/lib";
 
 interface Props {
 	platforms: Platform[];
-	selectedPlatform: Platform | null;
+	selectedPlatform: Platform | undefined;
 }
 
 const PlatformIconList = ({ platforms = [], selectedPlatform }: Props) => {

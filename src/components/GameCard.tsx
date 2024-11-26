@@ -5,6 +5,7 @@ import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "./../services/image-url";
 import { GameQuery } from "../App";
 import Emoji from "./Emoji";
+import usePlatforms from "../hooks/usePlatforms";
 
 interface Props {
 	game: Game;
@@ -12,6 +13,12 @@ interface Props {
 }
 
 export const GameCard = ({ game, gameQuery }: Props) => {
+	const { data } = usePlatforms();
+
+	const selectedPlatform = data?.results.find(
+		(p) => p.id === gameQuery.platformId,
+	);
+
 	const gameName = game.name;
 	const searchText = gameQuery.searchText;
 	let start = "";
@@ -33,7 +40,7 @@ export const GameCard = ({ game, gameQuery }: Props) => {
 				<HStack justifyContent="space-between" marginBottom={3}>
 					<PlatformIconList
 						platforms={game.parent_platforms?.map((p) => p.platform)}
-						selectedPlatform={gameQuery.platform}
+						selectedPlatform={selectedPlatform}
 					/>
 					<CriticScore score={game.metacritic} />
 				</HStack>
