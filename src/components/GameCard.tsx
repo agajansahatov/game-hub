@@ -5,7 +5,7 @@ import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "./../services/image-url";
 import { GameQuery } from "../App";
 import Emoji from "./Emoji";
-import usePlatforms from "../hooks/usePlatforms";
+import usePlatform from "../hooks/usePlatform";
 
 interface Props {
 	game: Game;
@@ -13,11 +13,7 @@ interface Props {
 }
 
 export const GameCard = ({ game, gameQuery }: Props) => {
-	const { data } = usePlatforms();
-
-	const selectedPlatform = data?.results.find(
-		(p) => p.id === gameQuery.platformId,
-	);
+	const selectedPlatform = usePlatform(gameQuery.platformId);
 
 	const gameName = game.name;
 	const searchText = gameQuery.searchText;
