@@ -6,6 +6,7 @@ import getCroppedImageUrl from "./../services/image-url";
 import Emoji from "./Emoji";
 import usePlatform from "../hooks/usePlatform";
 import useGameQueryStore from "../store";
+import { Link } from "react-router-dom";
 
 interface Props {
 	game: Game;
@@ -30,31 +31,34 @@ export const GameCard = ({ game }: Props) => {
 	}
 
 	return (
-		<Card>
-			<Image src={getCroppedImageUrl(game.background_image)} />
-			<CardBody>
-				<HStack justifyContent="space-between" marginBottom={3}>
-					<PlatformIconList
-						platforms={game.parent_platforms?.map((p) => p.platform)}
-						selectedPlatform={selectedPlatform}
-					/>
-					<CriticScore score={game.metacritic} />
-				</HStack>
-				<Heading fontSize="2xl">
-					{hightlight ? (
-						<>
-							{start}
-							<Text as="span" textDecoration="underline">
-								{hightlight}
-							</Text>
-							{end}
-						</>
-					) : (
-						gameName
-					)}
-					<Emoji rating={game.rating_top} />
-				</Heading>
-			</CardBody>
-		</Card>
+		<Link to={`/games/${game.slug}`}>
+			<Card>
+				<Image src={getCroppedImageUrl(game.background_image)} />
+				<CardBody>
+					<HStack justifyContent="space-between" marginBottom={3}>
+						<PlatformIconList
+							platforms={game.parent_platforms?.map((p) => p.platform)}
+							selectedPlatform={selectedPlatform}
+						/>
+						<CriticScore score={game.metacritic} />
+					</HStack>
+					<Heading fontSize="2xl">
+						{hightlight ? (
+							<>
+								{start}
+								<Text as="span" fontStyle="italic" fontWeight="bold">
+									{hightlight}
+								</Text>
+								{end}
+							</>
+						) : (
+							gameName
+						)}
+
+						<Emoji rating={game.rating_top} />
+					</Heading>
+				</CardBody>
+			</Card>
+		</Link>
 	);
 };
