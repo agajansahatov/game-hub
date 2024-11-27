@@ -3,16 +3,16 @@ import { Card, CardBody, Heading, HStack, Image, Text } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "./../services/image-url";
-import { GameQuery } from "../App";
 import Emoji from "./Emoji";
 import usePlatform from "../hooks/usePlatform";
+import useGameQueryStore from "../store";
 
 interface Props {
 	game: Game;
-	gameQuery: GameQuery;
 }
 
-export const GameCard = ({ game, gameQuery }: Props) => {
+export const GameCard = ({ game }: Props) => {
+	const gameQuery = useGameQueryStore((s) => s.gameQuery);
 	const selectedPlatform = usePlatform(gameQuery.platformId);
 
 	const gameName = game.name;
