@@ -1,3 +1,8 @@
 form {
 	width: 100%;
 }
+
+.logo:hover .logo-image {
+	rotate: 360deg;
+	transition: rotate 1s;
+}

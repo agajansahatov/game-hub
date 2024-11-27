@@ -46,7 +46,12 @@ export const GameCard = ({ game }: Props) => {
 						{hightlight ? (
 							<>
 								{start}
-								<Text as="span" fontStyle="italic" fontWeight="bold">
+								<Text
+									as="span"
+									fontStyle="italic"
+									fontWeight="bold"
+									color="green"
+								>
 									{hightlight}
 								</Text>
 								{end}
