@@ -4,7 +4,7 @@ import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
-import GameHeading from "./components/GameHeading";
+import GameGridHeading from "./components/GameGridHeading";
 
 function App() {
 	return (
@@ -29,7 +29,7 @@ function App() {
 				</Show>
 				<GridItem area="main">
 					<Box paddingLeft={2}>
-						<GameHeading />
+						<GameGridHeading />
 						<Flex marginBottom={1}>
 							<Box marginRight={5}>
 								<PlatformSelector />

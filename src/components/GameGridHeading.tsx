@@ -3,7 +3,7 @@ import usePlatform from "../hooks/usePlatform";
 import useGenre from "../hooks/useGenre";
 import useGameQueryStore from "../store";
 
-const GameHeading = () => {
+const GameGridHeading = () => {
 	const genreId = useGameQueryStore((s) => s.gameQuery.genreId);
 	const genre = useGenre(genreId);
 
@@ -19,4 +19,4 @@ const GameHeading = () => {
 	);
 };
 
-export default GameHeading;
+export default GameGridHeading;
