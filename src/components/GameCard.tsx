@@ -16,7 +16,7 @@ export const GameCard = ({ game }: Props) => {
 	const selectedPlatform = usePlatform(gameQuery.platformId);
 
 	const gameName = game.name;
-	const searchText = gameQuery.searchText;
+	const searchText = gameQuery.searchText?.toLowerCase();
 	let start = "";
 	let hightlight = "";
 	let end = "";
