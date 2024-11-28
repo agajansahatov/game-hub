@@ -20,7 +20,7 @@ Check out the live version at: [GameHub](https://game-hub-three-kohl.vercel.app/
 
 - **Framework**: React with TypeScript
 - **Build Tool**: Vite
-- **Styling**: Chakra UI, Framer Motion for animations
+- **Styling**: Chakra UI
 - **State Management**: Zustand
 - **Data Fetching**: Axios and React Query
 - **Routing**: React Router
